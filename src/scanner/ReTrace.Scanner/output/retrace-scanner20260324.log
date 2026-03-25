@@ -1,0 +1,39 @@
+[2026-03-24 08:12:49.778 INF]  | Re:Trace Scanner starting...
+[2026-03-24 08:12:49.815 INF]  | Enabled collectors: PrefetchCollector, AmcacheCollector, TempFilesCollector, RecentFilesCollector, BrowserDownloadsCollector
+[2026-03-24 08:12:49.820 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | === Re:Trace Scanner v0.2.0 ===
+[2026-03-24 08:12:49.821 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | Scan ID: 73ebb87bfe9047d08ef85862bc9e3fc7
+[2026-03-24 08:12:49.821 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | Machine: GAMINGPC, User: domid
+[2026-03-24 08:12:49.822 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | --- Step 1: Collecting artifacts ---
+[2026-03-24 08:12:49.822 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | Running collector: PrefetchCollector
+[2026-03-24 08:12:49.829 INF] ReTrace.Scanner.Collectors.PrefetchCollector | Found 756 Prefetch files
+[2026-03-24 08:12:50.198 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | Collector PrefetchCollector produced 756 artifacts in 374ms
+[2026-03-24 08:12:50.200 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | Running collector: AmcacheCollector
+[2026-03-24 08:12:50.202 INF] ReTrace.Scanner.Collectors.AmcacheCollector | Collected 0 Amcache artifacts
+[2026-03-24 08:12:50.202 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | Collector AmcacheCollector produced 0 artifacts in 1ms
+[2026-03-24 08:12:50.203 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | Running collector: TempFilesCollector
+[2026-03-24 08:12:52.303 INF] ReTrace.Scanner.Collectors.TempFilesCollector | Collected 18817 temp file artifacts from 3 directories
+[2026-03-24 08:12:52.304 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | Collector TempFilesCollector produced 18817 artifacts in 2101ms
+[2026-03-24 08:12:52.305 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | Running collector: RecentFilesCollector
+[2026-03-24 08:12:52.345 INF] ReTrace.Scanner.Collectors.RecentFilesCollector | Collected 124 recent file artifacts
+[2026-03-24 08:12:52.346 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | Collector RecentFilesCollector produced 124 artifacts in 40ms
+[2026-03-24 08:12:52.347 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | Running collector: BrowserDownloadsCollector
+[2026-03-24 08:12:53.405 INF] ReTrace.Scanner.Collectors.BrowserDownloadsCollector | Collected 19 browser download artifacts
+[2026-03-24 08:12:53.405 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | Collector BrowserDownloadsCollector produced 19 artifacts in 1058ms
+[2026-03-24 08:12:53.406 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | Total raw artifacts collected: 19716
+[2026-03-24 08:12:53.406 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | --- Step 2: Normalizing artifacts ---
+[2026-03-24 08:12:53.449 INF] ReTrace.Scanner.Normalization.ArtifactNormalizer | Normalized 19716 artifacts from 19716 raw inputs
+[2026-03-24 08:12:53.450 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | --- Step 3: Loading rules ---
+[2026-03-24 08:12:53.452 INF] ReTrace.Scanner.Rules.RuleLoader | Found 0 rule files in C:\Users\domid\Desktop\PC Checker\retrace\src\scanner\ReTrace.Scanner\rules
+[2026-03-24 08:12:53.453 INF] ReTrace.Scanner.Rules.RuleLoader | Total rules loaded: 0
+[2026-03-24 08:12:53.453 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | --- Step 4: Evaluating rules ---
+[2026-03-24 08:12:53.454 INF] ReTrace.Scanner.Rules.RuleEngine | Evaluating 0 rules against 19716 artifacts
+[2026-03-24 08:12:53.455 INF] ReTrace.Scanner.Rules.RuleEngine | Rule evaluation produced 0 findings
+[2026-03-24 08:12:53.455 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | --- Step 5: Correlating findings ---
+[2026-03-24 08:12:53.457 INF] ReTrace.Scanner.Correlation.CorrelationEngine | Correlation produced 0 additional findings
+[2026-03-24 08:12:53.460 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | --- Step 6: Packaging evidence ---
+[2026-03-24 08:12:53.462 INF] ReTrace.Scanner.Evidence.EvidencePackager | Evidence manifest contains 0 entries
+[2026-03-24 08:12:53.500 INF] ReTrace.Scanner.Evidence.EvidencePackager | Scan result written to C:\Users\domid\Desktop\PC Checker\retrace\src\scanner\ReTrace.Scanner\output\scan-result.json (700 bytes)
+[2026-03-24 08:12:53.511 INF] ReTrace.Scanner.Evidence.EvidencePackager | ZIP evidence bundle created: C:\Users\domid\Desktop\PC Checker\retrace\src\scanner\ReTrace.Scanner\output\retrace-evidence-73ebb87b.zip (0 evidence files included)
+[2026-03-24 08:12:53.512 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | === Scan complete ===
+[2026-03-24 08:12:53.513 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | Artifacts: 19716, Findings: 0, Correlated: 0, Duration: 3639ms
+[2026-03-24 08:12:53.514 INF] ReTrace.Scanner.Pipeline.ScannerPipeline | No findings detected.

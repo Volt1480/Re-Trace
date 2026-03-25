@@ -1,0 +1,94 @@
+{
+  "scanId": "a1b2c3d4e5f67890",
+  "scannerVersion": "0.2.0",
+  "scannedAtUtc": "2026-03-24T12:00:00Z",
+  "machineName": "DESKTOP-EXAMPLE",
+  "userName": "Player1",
+  "artifactCount": 142,
+  "findingCount": 3,
+  "findings": [
+    {
+      "id": "F-abc12345",
+      "ruleId": "FIVEM-001",
+      "title": "Suspicious loader path",
+      "summary": "File path contains the keyword 'loader'. [matched: path=\"C:\\Users\\Player1\\AppData\\Local\\Temp\\fivem-loader.exe\"]",
+      "severity": "High",
+      "confidence": 0.5,
+      "source": "TempFilesCollector",
+      "artifactType": "TempFile",
+      "tags": ["fivem", "loader"],
+      "evidenceRefs": [
+        {
+          "artifactId": "a1b2c3d4e5f6",
+          "filePath": "C:\\Users\\Player1\\AppData\\Local\\Temp\\fivem-loader.exe",
+          "sha256Hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "timestamp": "2026-03-24T11:30:00Z"
+        }
+      ],
+      "detectedAtUtc": "2026-03-24T12:00:00Z"
+    },
+    {
+      "id": "F-def67890",
+      "ruleId": "FIVEM-005",
+      "title": "Known injection tool in Prefetch",
+      "summary": "Prefetch entry for a known DLL injection tool (execution evidence). [matched: executableName=\"XENOS64.EXE\"]",
+      "severity": "Critical",
+      "confidence": 0.9,
+      "source": "PrefetchCollector",
+      "artifactType": "Prefetch",
+      "tags": ["fivem", "injector", "prefetch"],
+      "evidenceRefs": [
+        {
+          "artifactId": "b2c3d4e5f6a1",
+          "filePath": "C:\\Windows\\Prefetch\\XENOS64.EXE-A1B2C3D4.pf",
+          "sha256Hash": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
+          "timestamp": "2026-03-24T10:15:00Z"
+        }
+      ],
+      "detectedAtUtc": "2026-03-24T12:00:00Z"
+    },
+    {
+      "id": "CF-ghi11223",
+      "ruleId": "FIVEM-CORR-001",
+      "title": "Correlated: Loader + Injector evidence chain",
+      "summary": "Correlated finding: Both loader and injector artifacts found. [2 contributing findings from rules: FIVEM-001, FIVEM-002]",
+      "severity": "Critical",
+      "confidence": 0.95,
+      "source": "CorrelationEngine",
+      "artifactType": "Correlation",
+      "tags": ["fivem", "correlated", "chain"],
+      "evidenceRefs": [
+        {
+          "artifactId": "a1b2c3d4e5f6",
+          "filePath": "C:\\Users\\Player1\\AppData\\Local\\Temp\\fivem-loader.exe",
+          "sha256Hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "artifactId": "c3d4e5f6a1b2",
+          "filePath": "C:\\Users\\Player1\\Downloads\\injector-v2.exe",
+          "sha256Hash": "abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890"
+        }
+      ],
+      "correlatedFindingIds": ["F-abc12345", "F-def67890"],
+      "detectedAtUtc": "2026-03-24T12:00:00Z"
+    }
+  ],
+  "statistics": {
+    "totalArtifactsCollected": 142,
+    "totalRulesEvaluated": 13,
+    "totalFindingsGenerated": 3,
+    "correlatedFindings": 1,
+    "findingsBySeverity": {
+      "High": 1,
+      "Critical": 2
+    },
+    "artifactsBySource": {
+      "PrefetchCollector": 45,
+      "AmcacheCollector": 28,
+      "TempFilesCollector": 37,
+      "RecentFilesCollector": 22,
+      "BrowserDownloadsCollector": 10
+    },
+    "scanDurationMs": 1823.5
+  }
+}

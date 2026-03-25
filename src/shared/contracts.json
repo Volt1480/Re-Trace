@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Re:Trace Shared Contracts",
+  "version": "0.2.0",
+  "models": {
+    "finding": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique finding identifier" },
+        "ruleId": { "type": "string", "description": "ID of the rule that triggered this finding" },
+        "title": { "type": "string", "description": "Human-readable finding title" },
+        "summary": { "type": "string", "description": "Detailed finding summary" },
+        "severity": { "type": "string", "enum": ["Info", "Low", "Medium", "High", "Critical"] },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "source": { "type": "string", "description": "Which collector or engine produced this" },
+        "artifactType": { "type": "string", "description": "Type of artifact involved" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "evidenceRefs": { "type": "array", "items": { "$ref": "#/models/evidenceReference" } },
+        "detectedAtUtc": { "type": "string", "format": "date-time" },
+        "correlatedFindingIds": { "type": "array", "items": { "type": "string" }, "nullable": true }
+      },
+      "required": ["id", "ruleId", "title", "summary", "severity", "confidence", "source"]
+    },
+    "evidenceReference": {
+      "type": "object",
+      "properties": {
+        "artifactId": { "type": "string" },
+        "filePath": { "type": "string" },
+        "sha256Hash": { "type": "string", "nullable": true },
+        "timestamp": { "type": "string", "format": "date-time", "nullable": true }
+      },
+      "required": ["artifactId", "filePath"]
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "artifactId": { "type": "string" },
+        "filePath": { "type": "string" },
+        "sha256Hash": { "type": "string", "nullable": true },
+        "createdUtc": { "type": "string", "format": "date-time", "nullable": true },
+        "modifiedUtc": { "type": "string", "format": "date-time", "nullable": true },
+        "fileSizeBytes": { "type": "integer", "nullable": true },
+        "metadata": { "type": "object", "additionalProperties": { "type": "string" } }
+      },
+      "required": ["artifactId", "filePath"]
+    },
+    "rule": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string", "enum": ["exact", "contains", "regex", "hash", "path", "filename", "correlation"] },
+        "field": { "type": "string" },
+        "value": { "type": "string", "nullable": true },
+        "values": { "type": "array", "items": { "type": "string" }, "nullable": true },
+        "severity": { "type": "string", "enum": ["info", "low", "medium", "high", "critical"] },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1, "default": 0.5 },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "author": { "type": "string", "nullable": true },
+        "version": { "type": "string", "nullable": true },
+        "requires": { "type": "array", "items": { "type": "string" }, "nullable": true },
+        "minimumMatches": { "type": "integer", "nullable": true },
+        "confidenceBoost": { "type": "number", "nullable": true }
+      },
+      "required": ["id", "type", "field", "severity", "title"]
+    },
+    "scanResult": {
+      "type": "object",
+      "properties": {
+        "scanId": { "type": "string" },
+        "scannerVersion": { "type": "string" },
+        "scannedAtUtc": { "type": "string", "format": "date-time" },
+        "machineName": { "type": "string" },
+        "userName": { "type": "string" },
+        "artifactCount": { "type": "integer" },
+        "findingCount": { "type": "integer" },
+        "findings": { "type": "array", "items": { "$ref": "#/models/finding" } },
+        "evidenceManifest": { "type": "array", "items": { "$ref": "#/models/evidence" } },
+        "statistics": { "$ref": "#/models/scanStatistics" }
+      }
+    },
+    "scanStatistics": {
+      "type": "object",
+      "properties": {
+        "totalArtifactsCollected": { "type": "integer" },
+        "totalRulesEvaluated": { "type": "integer" },
+        "totalFindingsGenerated": { "type": "integer" },
+        "correlatedFindings": { "type": "integer" },
+        "findingsBySeverity": { "type": "object", "additionalProperties": { "type": "integer" } },
+        "artifactsBySource": { "type": "object", "additionalProperties": { "type": "integer" } },
+        "scanDurationMs": { "type": "number" }
+      }
+    }
+  }
+}

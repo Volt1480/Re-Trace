@@ -1,0 +1,26 @@
+{
+  "ScanId": "73ebb87bfe9047d08ef85862bc9e3fc7",
+  "ScannerVersion": "0.2.0",
+  "ScannedAtUtc": "2026-03-24T07:12:49.8189536Z",
+  "MachineName": "GAMINGPC",
+  "UserName": "domid",
+  "ArtifactCount": 19716,
+  "FindingCount": 0,
+  "Findings": [],
+  "EvidenceManifest": [],
+  "Artifacts": [],
+  "Statistics": {
+    "TotalArtifactsCollected": 19716,
+    "TotalRulesEvaluated": 0,
+    "TotalFindingsGenerated": 0,
+    "CorrelatedFindings": 0,
+    "FindingsBySeverity": {},
+    "ArtifactsBySource": {
+      "PrefetchCollector": 756,
+      "TempFilesCollector": 18817,
+      "RecentFilesCollector": 124,
+      "BrowserDownloadsCollector": 19
+    },
+    "ScanDurationMs": 3639
+  }
+}

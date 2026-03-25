@@ -1,0 +1,14 @@
+{
+  "TotalArtifactsCollected": 19716,
+  "TotalRulesEvaluated": 0,
+  "TotalFindingsGenerated": 0,
+  "CorrelatedFindings": 0,
+  "FindingsBySeverity": {},
+  "ArtifactsBySource": {
+    "PrefetchCollector": 756,
+    "TempFilesCollector": 18817,
+    "RecentFilesCollector": 124,
+    "BrowserDownloadsCollector": 19
+  },
+  "ScanDurationMs": 3639
+}
